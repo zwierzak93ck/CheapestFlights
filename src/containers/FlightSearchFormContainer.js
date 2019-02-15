@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { FlightSearchForm } from '../components/FlightSearchForm';
 import { connect } from 'react-redux';
+import { changeAirport, changeStartDate, changeEndDate, setAirports, setFlights} from '../store/actions/rootActions'
 
 class FlightSearchFormContainer extends Component {
 
@@ -17,6 +18,7 @@ class FlightSearchFormContainer extends Component {
     }
 
     changeStartDate = (e) => {
+        console.log(e)
         this.props.changeStartDate(e);
     }
 
@@ -53,7 +55,6 @@ class FlightSearchFormContainer extends Component {
                     destinationAirport={this.props.destinationAirport}
                     startDate={this.props.startDate}
                     endDate={this.props.endDate}
-
                 />
             </div> : null
         )
@@ -72,11 +73,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeAirport: (airport, direction) => { dispatch({type:'CHANGE_AIRPORT', airport, direction}) },
-        changeStartDate: (date) => { dispatch({type: 'CHANGE_START_DATE', date})},
-        changeEndDate: (date) => { dispatch({ type: 'CHANGE_END_DATE', date})},
-        setAirports: (airports) => { dispatch({type: 'SET_AIRPORTS', airports}) },
-        setFlights: (flights) => { dispatch({ type: 'SET_FLIGHTS', flights})}
+        changeAirport: (airport, direction) => { dispatch(changeAirport(airport, direction)) },
+        changeStartDate: (date) => { dispatch(changeStartDate(date))},
+        changeEndDate: (date) => { dispatch(changeEndDate(date))},
+        setAirports: (airports) => { dispatch(setAirports(airports))},
+        setFlights: (flights) => { dispatch(setFlights(flights))}
     }
 }
 
