@@ -1,77 +1,98 @@
 import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import { DateTimePicker } from 'material-ui-pickers';
+import { DatePicker } from 'material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import { Select, FormControlLabel, FormControl } from '@material-ui/core';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Button from '@material-ui/core/Button';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 
 export const FlightSearchForm = (props) => {
-    return (
-        <div className="search-form-flex-container">
-        <Card className="search-form-card">
-          <CardContent>
-          <TextField
-          select
-          label="From"
-          name="origin"
-          onChange={props.onAirportChange}
-          value={props.originAirport}
-          margin="normal"
-        >
-          {props.airports.map(option => (
-            <MenuItem key={option.iataCode} value={option.iataCode}>
-              {option.name}
-            </MenuItem>
-          ))}
-        </TextField>
+  const  currentDate  = new Date();
+  const nextYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
 
-        <TextField
-          select
-          label="To"
-          name="destination"
-          onChange={props.onAirportChange}
-          value={props.destinationAirport}
-          margin="normal"
-        >
-          {props.airports.map(option => (
-            <MenuItem key={option.iataCode} value={option.iataCode}>
-              {option.name}
-            </MenuItem>
-          ))}
-        </TextField>
+  return (
+    <div className="search-form-flex-container">
+      <Card className="search-form-card">
+        <CardContent className="card-content">
+      
+          <FormControl>
+            <Select
+              label="From"
+              className="select"
+              input={
+                <OutlinedInput
 
-<MuiPickersUtilsProvider utils={DateFnsUtils}> 
-<div className="picker">
-          <DateTimePicker
+                  value={props.originAirport}
+                  name="origin"
+                  
+                  labelWidth={0}
+                />
+              }
+              onChange={props.onAirportChange}
+            >
+              {props.airports.map(option => (
+                <MenuItem key={option.iataCode} value={option.iataCode}>
+                  {option.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+
+          <FormControl>
+            <Select
+             className="select"
+                variant="outlined"
+              onChange={props.onAirportChange}
+            >
+              {props.airports.map(option => (
+                <MenuItem key={option.iataCode} value={option.iataCode}>
+                  {option.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+
+          <MuiPickersUtilsProvider utils={DateFnsUtils}> 
+          <DatePicker
+          
+          className="date-picker"
             ampm={false}
-            format={'dd.MM.YYYY - HH:mm'}
+            format={'dd.MM.YYYY'}
             disableFuture={false}
             value={props.startDate}
             onChange={props.onStartDateChange}
-            label="Start date"
+            minDate={currentDate}
+            maxDate={props.endDate ? props.endDate : nextYear}
+            variant="outlined"
           />
-        </div>
-</MuiPickersUtilsProvider>
+</MuiPickersUtilsProvider> 
 
-<MuiPickersUtilsProvider utils={DateFnsUtils}> 
-<div className="picker">
-          <DateTimePicker
+           <MuiPickersUtilsProvider utils={DateFnsUtils}> 
+          <DatePicker
+          className="date-picker"
             ampm={false}
-            format={'dd.MM.YYYY - HH:mm'}
+            format={'dd.MM.YYYY'}
             disableFuture={false}
             value={props.endDate}
             onChange={props.onEndDateChange}
-            label="End date"
+            minDate={props.startDate ? props.startDate : currentDate}
+            variant="outlined"
           />
-        </div>
 </MuiPickersUtilsProvider>
-        
 
-        <button onClick={props.onSubmit}>Check</button>
-          </CardContent>
-        </Card>
-        </div>
-    )
+
+
+
+          <Button variant="outlined" className="button" color="default" onClick={props.onSubmit}>Search</Button>
+        </CardContent>
+      </Card>
+    </div>
+  )
 }

@@ -12,10 +12,6 @@ export const FlightResults = (props) =>
          
              <Card className="results-card">
                  <CardContent >
-                     {/* <div>Price: {props.price.toFixed(2)}{props.currency}</div>
-                     { (props.lowestPrice === props.price) ? <div>Lowest Price!!!</div> : <div>&nbsp;</div> }
-                     <div><span>Date From: </span><span>{props.dateFrom}</span></div>
-                     <div><span>Date To: </span><span>{props.dateTo}</span></div> */}
                      <table>
                          <tbody>
                          <tr>

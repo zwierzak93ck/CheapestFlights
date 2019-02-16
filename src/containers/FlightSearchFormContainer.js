@@ -23,14 +23,15 @@ class FlightSearchFormContainer extends Component {
     }
 
     changeEndDate = (e) => {
+        console.log(e)
         this.props.changeEndDate(e);
     }
 
     search = () => {
         axios.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/' + 
                     this.props.originAirport + '/to/' + this.props.destinationAirport + '/' + 
-                    this.props.startDate.getFullYear() + '-' + this.props.startDate.getMonth() + '-' + this.props.startDate.getDate() + '%20/' + 
-                    this.props.endDate.getFullYear() + '-' + this.props.endDate.getMonth() + '-' + this.props.endDate.getDate()  + 
+                    this.props.startDate.getFullYear() + '-' + (this.props.startDate.getMonth() + 1) + '-' + this.props.startDate.getDate() + '%20/' + 
+                    this.props.endDate.getFullYear() + '-' + (this.props.endDate.getMonth() + 1) + '-' + this.props.endDate.getDate()  + 
                      '/250/unique/?limit=15&amp;offset-0')
         .then((result) => {
             const flightsSortedByPrice = result.data.flights.sort((a, b) => {
