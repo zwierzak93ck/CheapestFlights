@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/CheapestFlights/precache-manifest.7919fa84f4c207a293f98071aff9acf3.js"
+  "/CheapestFlights/precache-manifest.ad01d00ad0eacd1cfbeddd92466dd90d.js"
 );
 
 workbox.clientsClaim();

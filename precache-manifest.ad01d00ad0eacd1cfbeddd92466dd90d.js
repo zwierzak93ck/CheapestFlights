@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/CheapestFlights/static/css/main.f20befe3.chunk.css"
   },
   {
-    "revision": "8309f729d1c0abe5f8e921271941d5dd",
+    "revision": "dbdb6baf50aa6828bd21d21ff02ebead",
     "url": "/CheapestFlights/index.html"
   }
 ];
