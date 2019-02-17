@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/CheapestFlights/./precache-manifest.a78d4b42898a5c7848f7efb3226b24e1.js"
+  "/CheapestFlights/precache-manifest.7919fa84f4c207a293f98071aff9acf3.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/CheapestFlights/./index.html", {
+workbox.routing.registerNavigationRoute("/CheapestFlights/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

@@ -1,14 +1,14 @@
 {
-  "main.css": "/CheapestFlights/./static/css/main.f20befe3.chunk.css",
-  "main.js": "/CheapestFlights/./static/js/main.0033e3bd.chunk.js",
-  "main.js.map": "/CheapestFlights/./static/js/main.0033e3bd.chunk.js.map",
-  "runtime~main.js": "/CheapestFlights/./static/js/runtime~main.adc41ade.js",
-  "runtime~main.js.map": "/CheapestFlights/./static/js/runtime~main.adc41ade.js.map",
-  "static/js/2.6a381040.chunk.js": "/CheapestFlights/./static/js/2.6a381040.chunk.js",
-  "static/js/2.6a381040.chunk.js.map": "/CheapestFlights/./static/js/2.6a381040.chunk.js.map",
-  "index.html": "/CheapestFlights/./index.html",
-  "precache-manifest.a78d4b42898a5c7848f7efb3226b24e1.js": "/CheapestFlights/./precache-manifest.a78d4b42898a5c7848f7efb3226b24e1.js",
-  "service-worker.js": "/CheapestFlights/./service-worker.js",
-  "static/css/main.f20befe3.chunk.css.map": "/CheapestFlights/./static/css/main.f20befe3.chunk.css.map",
-  "static/media/logo.svg": "/CheapestFlights/./static/media/logo.ee7cd8ed.svg"
+  "main.css": "/CheapestFlights/static/css/main.f20befe3.chunk.css",
+  "main.js": "/CheapestFlights/static/js/main.0033e3bd.chunk.js",
+  "main.js.map": "/CheapestFlights/static/js/main.0033e3bd.chunk.js.map",
+  "runtime~main.js": "/CheapestFlights/static/js/runtime~main.f8073f99.js",
+  "runtime~main.js.map": "/CheapestFlights/static/js/runtime~main.f8073f99.js.map",
+  "static/js/2.6a381040.chunk.js": "/CheapestFlights/static/js/2.6a381040.chunk.js",
+  "static/js/2.6a381040.chunk.js.map": "/CheapestFlights/static/js/2.6a381040.chunk.js.map",
+  "index.html": "/CheapestFlights/index.html",
+  "precache-manifest.7919fa84f4c207a293f98071aff9acf3.js": "/CheapestFlights/precache-manifest.7919fa84f4c207a293f98071aff9acf3.js",
+  "service-worker.js": "/CheapestFlights/service-worker.js",
+  "static/css/main.f20befe3.chunk.css.map": "/CheapestFlights/static/css/main.f20befe3.chunk.css.map",
+  "static/media/logo.svg": "/CheapestFlights/static/media/logo.ee7cd8ed.svg"
 }
