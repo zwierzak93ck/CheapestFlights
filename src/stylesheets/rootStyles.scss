@@ -1,138 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:500');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:500");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+@import "./flightSearchFormStyles";
+@import "./flightResultsStyles";
 
-.results-flex-container {
-    display: flex;
-    flex-direction: row;
-    margin-left: 12%;
-    margin-right: 12%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    & .results-card {
-        width: 23%;
-        min-width: 200px;
-        height: 200px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
-        background-color: rgba(241, 242, 243, 0.9);
-    }
-}
-
-.search-form-flex-container {
-    margin-left: 12%;
-    margin-right: 12%;
-    
-    & .search-form-card {
-        height: auto;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
-        
-        background-color: rgba(0, 0, 0, 0.1);
-        padding-top: 30px;
-        & .card-content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: baseline;
-            border-radius: 4px;
-            flex-wrap: wrap;
-
-         
-            
-                & .select {
-                    color: #7b8aab;
-                    background-color: #ffffff;
-                    width: 200px;
-                    height: 40px;
-                }
-            
-                & .date-picker {
-                    color: #7b8aab;
-                    background-color: #ffffff;
-                    width: 200px;
-                    height: 40px;
-                }
-
-                & .button {
-                     text-transform: none;
-        font-size: 16px;
-        line-height: 1.63;
-        color: #4f4f4f;
-        background-color: rgba(0, 0, 0, 0.1);
-                    width: 200px;
-                    height: 40px;
-                }
-            
-
-        }
-
- 
-    }
-}
-
-th {
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #3a5970;
-    padding-bottom: 20px;
-}
-
-td {
-    font-family: Roboto;
-    font-size: 15px;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    
-   
-    &.label {
-        font-weight: normal;
-        color: #8f9cba;
-    }
-
-    &.value {
-        font-weight: 500;
-        color: #3a5970;
-    }
-
-    & .button {
-        margin-top: 20px;
-        width: 100%;
-        text-transform: none;
-        font-size: 16px;
-        line-height: 1.63;
-        color: #4f4f4f;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-}
-
-table {
-    width: 100%
+body {
+  font-family: Roboto;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #7b8aab;
+  background-color: #dfdfdf;
 }
 
 .title {
-    font-family: Ubuntu;
-    font-size: 72px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-top: 35px;
-    margin-bottom: 35px;
+  font-family: Ubuntu;
+  font-size: 72px;
+  font-weight: 500;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .logo {
-    width: 234px;
-    height: 165px;
+  width: 234px;
+  height: 165px;
 }
-

@@ -1,0 +1,54 @@
+.search-form-flex-container {
+  margin-left: 12%;
+  margin-right: 12%;
+
+  & .search-form-card {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-top: 30px;
+
+    & .card-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: baseline;
+      border-radius: 4px;
+      flex-wrap: wrap;
+      padding-bottom: 16px;
+
+      & .select {
+        background-color: #ffffff;
+        width: 250px;
+        height: 40px;
+
+        & :first-child {
+          color: #7b8aab;
+        }
+      }
+
+      & .date-picker {
+        background-color: #ffffff;
+        width: 250px;
+        height: 40px;
+
+        & :first-child {
+          color: #7b8aab;
+        }
+      }
+
+      & .button {
+        text-transform: none;
+        line-height: 1.63;
+        font-size: 16px;
+        color: #4f4f4f;
+        background-color: rgba(0, 0, 0, 0.1);
+        width: 250px;
+        height: 40px;
+      }
+    }
+  }
+}

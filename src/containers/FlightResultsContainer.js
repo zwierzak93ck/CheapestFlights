@@ -19,13 +19,12 @@ class FlightResultsContainers extends Component {
                 this.props.flights.map((flight) =>
                     <FlightResults
                         key={flight.price}
-                        price={flight.price}
-                        currency={flight.currency}
                         dateFrom={this.setDate(new Date(flight.dateFrom))}
                         dateTo={this.setDate(new Date(flight.dateTo))}
-                        lowestPrice={Math.min(...prices)} 
-                    />)
-                : null
+                        price={flight.price}
+                        currency={flight.currency}
+                        lowestPrice={Math.min(...prices)}
+                    />) : null
         )
     }
 }

@@ -3,8 +3,8 @@ const initialState = {
     flights: null,
     originAirport: '',
     destinationAirport: '',
-    startDate: null,
-    endDate: null
+    dateFrom: null,
+    dateTo: null
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -26,15 +26,15 @@ const rootReducer = (state = initialState, action) => {
                 default:
                     return state;
             }
-        case 'CHANGE_START_DATE':
+        case 'CHANGE_DATE_FROM':
             return {
                 ...state,
-                startDate: action.date
+                dateFrom: action.date
             };
-        case 'CHANGE_END_DATE':
+        case 'CHANGE_DATE_TO':
             return {
                 ...state,
-                endDate: action.date
+                dateTo: action.date
             };
         case 'SET_AIRPORTS':
             return {
@@ -42,10 +42,10 @@ const rootReducer = (state = initialState, action) => {
                 airports: action.airports
             };
         case 'SET_FLIGHTS':
-        return {
-            ...state,
-            flights: action.flights
-        };
+            return {
+                ...state,
+                flights: action.flights
+            };
         default:
             return state;
     }

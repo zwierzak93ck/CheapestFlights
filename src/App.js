@@ -8,12 +8,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className="title"><img src={logo} alt="logo" className="logo"></img> Flight Finder</h1>
+        <h1 className="title">
+          <img src={logo} alt="logo" className="logo"></img> Flight Finder
+        </h1>
         <FlightSearchFormContainer />
         <div className="results-flex-container">
-        <FlightResultsContainer/>
+          <FlightResultsContainer />
         </div>
-        </div>
+      </div>
     );
   }
 }

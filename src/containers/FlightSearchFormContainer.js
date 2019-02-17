@@ -1,84 +1,82 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { FlightSearchForm } from '../components/FlightSearchForm';
 import { connect } from 'react-redux';
-import { changeAirport, changeStartDate, changeEndDate, setAirports, setFlights} from '../store/actions/rootActions'
+import axios from 'axios';
+import { setAirports, setFlights, changeAirport, changeDateFrom, changeDateTo } from '../store/actions/rootActions'
+import { FlightSearchForm } from '../components/FlightSearchForm';
 
 class FlightSearchFormContainer extends Component {
 
     componentDidMount() {
         axios.get('https://murmuring-ocean-10826.HEROkuapp.com/en/api/2/forms/flight-booking-selector/')
-        .then((result) => {
-            this.props.setAirports(result.data.airports);
-        });
+            .then((result) => {
+                this.props.setAirports(result.data.airports);
+            });
     }
 
     changeAirport = (e) => {
         this.props.changeAirport(e.target.value, e.target.name);
     }
 
-    changeStartDate = (e) => {
-        console.log(e)
-        this.props.changeStartDate(e);
+    changeDateFrom = (e) => {
+        this.props.changeDateFrom(e);
     }
 
-    changeEndDate = (e) => {
-        console.log(e)
-        this.props.changeEndDate(e);
+    changeDateTo = (e) => {
+        this.props.changeDateTo(e);
     }
 
     search = () => {
-        axios.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/' + 
-                    this.props.originAirport + '/to/' + this.props.destinationAirport + '/' + 
-                    this.props.startDate.getFullYear() + '-' + (this.props.startDate.getMonth() + 1) + '-' + this.props.startDate.getDate() + '%20/' + 
-                    this.props.endDate.getFullYear() + '-' + (this.props.endDate.getMonth() + 1) + '-' + this.props.endDate.getDate()  + 
-                     '/250/unique/?limit=15&amp;offset-0')
-        .then((result) => {
-            const flightsSortedByPrice = result.data.flights.sort((a, b) => {
-                return a.price - b.price
+        axios.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/' +
+            this.props.originAirport + '/to/' + this.props.destinationAirport + '/' +
+            this.props.dateFrom.getFullYear() + '-' + (this.props.dateFrom.getMonth() + 1) + '-' + this.props.dateFrom.getDate() + '%20/' +
+            this.props.dateTo.getFullYear() + '-' + (this.props.dateTo.getMonth() + 1) + '-' + this.props.dateTo.getDate() +
+            '/250/unique/?limit=15&amp;offset-0')
+            .then((result) => {
+                const flightsSortedByPrice = result.data.flights.sort((a, b) => {
+                    return a.price - b.price
+                });
+                this.props.setFlights(flightsSortedByPrice);
             });
-            this.props.setFlights(flightsSortedByPrice);
-        });
     }
 
     render() {
         return (
-            this.props.airports ? 
-            <div>
-                <FlightSearchForm 
-                    key={new Date()}
-                    onAirportChange={this.changeAirport} 
-                    onStartDateChange={this.changeStartDate}
-                    onEndDateChange={this.changeEndDate}
-                    onSubmit={this.search}
-                    airports={this.props.airports} 
-                    originAirport={this.props.originAirport} 
-                    destinationAirport={this.props.destinationAirport}
-                    startDate={this.props.startDate}
-                    endDate={this.props.endDate}
-                />
-            </div> : null
+            this.props.airports ?
+                <div>
+                    <FlightSearchForm
+                        key={new Date()}
+                        airports={this.props.airports}
+                        originAirport={this.props.originAirport}
+                        destinationAirport={this.props.destinationAirport}
+                        dateFrom={this.props.dateFrom}
+                        dateTo={this.props.dateTo}
+                        onAirportChange={this.changeAirport}
+                        onDateFromChange={this.changeDateFrom}
+                        onDateToChange={this.changeDateTo}
+                        onSubmit={this.search}
+                    />
+                </div> : null
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
+        airports: state.airports,
         originAirport: state.originAirport,
         destinationAirport: state.destinationAirport,
-        startDate: state.startDate,
-        endDate: state.endDate,
-        airports: state.airports
+        dateFrom: state.dateFrom,
+        dateTo: state.dateTo
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        setAirports: (airports) => { dispatch(setAirports(airports)) },
+        setFlights: (flights) => { dispatch(setFlights(flights)) },
         changeAirport: (airport, direction) => { dispatch(changeAirport(airport, direction)) },
-        changeStartDate: (date) => { dispatch(changeStartDate(date))},
-        changeEndDate: (date) => { dispatch(changeEndDate(date))},
-        setAirports: (airports) => { dispatch(setAirports(airports))},
-        setFlights: (flights) => { dispatch(setFlights(flights))}
+        changeDateFrom: (date) => { dispatch(changeDateFrom(date)) },
+        changeDateTo: (date) => { dispatch(changeDateTo(date)) },
     }
 }
 
